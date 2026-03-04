@@ -1,0 +1,13 @@
+/* chatgpt.com */
+
+button[aria-label="Upgrade"] {display: none !important;}
+
+.group\/sidebar-expando-section {
+  display: none !important;
+}
+.group\/sidebar-expando-section + .group\/sidebar-expando-section {
+  display: block !important; /* re-enable second one */
+}
+
+#history {opacity:0;}
+#history:hover {opacity:1;}
