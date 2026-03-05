@@ -1,5 +1,8 @@
 # Custom CSS Injector
 
+## Exemplars
+
+
 ## How to Use
 - Download a compatible userscript manager extension for your browser
 - Popular options are:
@@ -19,9 +22,6 @@
     - genius.css
     - twitch.css
 - This can also be used to remove visual clutter or even ads, apart from changing background-color, font etc 
-
-## Usage Examples:
-- (to be updated)
 
 ## Extra
 I have nothing to plug here. But here's a quote:
