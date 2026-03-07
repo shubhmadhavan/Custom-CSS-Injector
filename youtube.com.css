@@ -1,0 +1,6 @@
+/* youtube.com */
+
+#overlay {opacity: 0 !important; transition: opacity 0.4s ease-in-out;}
+#overlay:hover {opacity: 1 !important;}
+.yt-core-image {filter: grayscale(100%) !important;}
+#dismissible.style-scope.ytd-rich-shelf-renderer, .ytd-page-top-ad-layout-renderer {display: 0 !important;}
