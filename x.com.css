@@ -1,0 +1,11 @@
+div[aria-label="Trending"], header[role="banner"] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+div[aria-label="Trending"]:hover, header[role="banner"]:hover {
+  opacity: 0.8;
+  transition-delay: 0.3s;
+}
+
+div[data-testid="GrokDrawerHeader"], div[data-testid="chat-drawer-root"] { display: none; }
