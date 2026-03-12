@@ -1,6 +1,5 @@
 # Custom CSS Injector
 
-## Exemplars
 
 
 ## How to Use
@@ -22,6 +21,9 @@
     - genius.css
     - twitch.css
 - This can also be used to remove visual clutter or even ads, apart from changing background-color, font etc 
+
+## Exemplars
+
 
 ## Extra
 I have nothing to plug here. But here's a quote:
