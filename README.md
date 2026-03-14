@@ -12,6 +12,7 @@
 - On a webpage, click on your userscript manager extension
   - For Tampermonkey, it should look something like this:
    <img  width="150" alt="2025-11-02 (09-42-58)" src="https://github.com/user-attachments/assets/82f1ad36-6d51-4098-9e2e-e330c6865bbf" />
+ 
   - Then click on "Edit Custom CSS..." to open a popup
   - You can input custom styles as per your need. Assume you are editing a .css file
   - Use the "Inspect" element feature on your browser to understand the website, if needed
