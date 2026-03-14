@@ -1,0 +1,4 @@
+#logo, .k1zIA{display:none;}
+
+div[aria-label="Search inside image"] {opacity:0;}
+div[aria-label="Search inside image"]:hover {opacity:1;} 
