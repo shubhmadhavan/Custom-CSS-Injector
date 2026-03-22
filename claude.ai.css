@@ -1,0 +1,11 @@
+.max-w-3xl{
+max-width: 70rem;
+}
+
+button [aria-label="Scroll to bottom"], div[data-testid="chat-input-grid-container"]
+{opacity: 1;
+transition: opacity 0.3s ease-in;}
+
+button [aria-label="Scroll to bottom"]:hover, div[data-testid="chat-input-grid-container"]:hover
+{opacity: 0;
+}
