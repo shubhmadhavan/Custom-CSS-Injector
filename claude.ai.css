@@ -6,6 +6,8 @@ button [aria-label="Scroll to bottom"], div[data-testid="chat-input-grid-contain
 {opacity: 1;
 transition: opacity 0.3s ease-in;}
 
-button [aria-label="Scroll to bottom"]:hover, div[data-testid="chat-input-grid-container"]:hover
+button [aria-label="Scroll to bottom"]:hover, 
+div[data-chat-input-container="true"] > 
+div[data-testid="chat-input-grid-container"]:hover
 {opacity: 0;
 }
