@@ -11,3 +11,18 @@ div[data-chat-input-container="true"] >
 div[data-testid="chat-input-grid-container"]:hover
 {opacity: 0;
 }
+
+/* Keep visible while typing */
+div[data-chat-input-container="true"]:focus-within 
+div[data-testid="chat-input-grid-container"] {
+  opacity: 1 !important;
+}
+
+button [aria-label="Scroll to bottom"]:focus, 
+div[data-chat-input-container="true"] > 
+div[data-testid="chat-input-grid-container"]:focus
+{opacity: 1 !important;
+}
+
+#command-palette-results > div[aria-label="Actions"]
+{display: none;}
