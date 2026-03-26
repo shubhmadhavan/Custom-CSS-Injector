@@ -1,7 +1,4 @@
-/* pib.gov.in */
-
 a { font-size: 24px !important; margin-top: -12px !important;}
-
 
 
 @media (min-width: 1200px) {
@@ -10,11 +7,7 @@ a { font-size: 24px !important; margin-top: -12px !important;}
     }
 }
 
-p {font-size: 22px !important; color: #525050 !important; }
-
-.row pt20 {width: 80vw !important; padding-left: 42vw !important; padding-right: 42vw !important;}
-
-header > .top_head, header > .mid_head, .rel_t, .log_oo {   display: none !important; }
+header > .top_head, header > .mid_head {   display: none !important; }
 
 #MinistryName{opacity: 0.8;}
 
@@ -22,11 +15,15 @@ h1, h2, h3 { font-style: unset; }
 h2, #Titleh2 {  text-decoration: underline !important;}
 
 
+
 h2{font-weight: unset; font-size: 21px !important; padding:0; margin:0; }
 h3{font-weight: unset; font-size: 21px !important; padding:0; margin:0;}
 
 
+
+
 #PrDateTime { font-size: 1rem; padding:0; margin:0;}
+
 
 
  article{max-width:10px;}
@@ -41,12 +38,17 @@ img{max-width: 200px !important; height:auto !important;}
 
 body, article, div{ background-color:#ebe6de !important; color: black !important;} 
 
+
+
 .row.pt20  {}
 
+
 nav > .container {background-color: #808080 !important; }
+.pb40 > .container {width: 1620px !important; }
 
 .col-md-4 > a > img {display: none !important;}
 .col-md-8.col-sm-8.col-xs-12.topupContent {width: 900px !important; max-width: 92% !important;}
+
 
 .innner-page-main-about-us-content-right-part{all: unset !important; width: 1300px !important; max-width: 90% !important;}
 
@@ -54,9 +56,12 @@ nav > .container {background-color: #808080 !important; }
 .innner-page-main-about-us-content-right-part > #lg_g  {display: none !important;}
 
 span {background-color: unset !important;}
+p {font-size: 20px !important; color: #525050 !important;}
 span {font-size: 20px !important; }
 strong > em {all:unset; font-size: 20px !important;  background-color: #f1e7bd !important;}
 strong  {all:unset; font-size: 20px !important;  background-color: #f1e7bd !important;}
+strong > span {color: #000000 !important;}
+
 
 p[style*="text-align:center"] > strong {
 background-color: unset !important;
@@ -70,6 +75,7 @@ background-color: unset !important;
 
 .language .form-control, .regional .form-control {background-color: #b3aca1 !important; }
 
+
 .section1{
 display: none !important;
 }
@@ -80,8 +86,6 @@ display: none !important;
 font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif !important; 
 }
 
-.pb40 > .container 
-{ width: 1400px !important;}
 
 .search_box { border: unset !important; font-size: 0px !important; opacity: 0.6; }
 .search_box .form-control { border: unset !important;}
