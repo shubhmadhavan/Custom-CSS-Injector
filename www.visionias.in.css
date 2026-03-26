@@ -1,7 +1,27 @@
-.containerForWidget-2jSmS, .container-fluid.banner-slider, .jNTuve, .container-1-ZOL.containerForWidget-2jSmS { display: none !important;}
+#text-selection-tooltip {display: none !important;}
 
- .imageContainer-1MRiB, .tw-w-full banner-slider, #Embed, div[data-testid="chat-badge"], .imageContainer-1MRiB, .container-1-ZOL, .styles__WidgetLauncherContainer-sc-f7xurm-0 { display: none !important;}
-div[name="checked_answer_script"] {background-color: green !important;}
+.upgradeBanner, .copyright, .pHeader_tabs, img[title="Vision-IAS Logo"], .navbar-brand > img , .container-fluid.banner-slider  { display:none !important;}
+.container.pv-30, .pCol.pCol-wide.alpha {width: 100% !important;}
+.js-video-container > iframe {height: 550px !important; margin-top:-60px !important;}
+.mobileMenu_hamburger_icon, .mobileMenu_hamburger.js-hamburger-menu {z-index: 2147483647 !important;}
+.pHeader, .mobileMenu, .mobileMenu_fallbackHeader, .mobileMenu_hamburger {height: 20px !important;}
+.mobileMenu_hamburger {margin-top: -8px;}
+.mdOverlay.js-main-sidebar-overlay.is-visible {opacity: 0.2 !important;}
+.container.pv-30, .mobileMenu_fallbackHeader, html body .mobileMenu_fallbackHeader, 
+.gw-nav.gw-nav-list > ul
+{background-color:black  !important; color:white !important;}
 
-span[name="answer_format"] {background-color: rgb(128, 182, 182) !important;}
-div[name="question_paper"], span[name="question_paper"]  {background-color: rgb(162, 112, 148) !important;}
+ .ldg-sectionAvailableCourses_getStarted-red[name="unchecked_answer_script"] {background-color: lightblue !important;}
+ .ldg-sectionAvailableCourses_getStarted-red[name="checked_answer_script"] {background-color: green !important;}
+
+.ldg-sectionAvailableCourses_getStarted-red::hover [name="unchecked_answer_script"] {background-color: white !important;}
+.container {width: 1620px !important;}
+
+[x-show="isSideMenuOpen"] {
+  transform: translateX(-115%);
+  transition: transform 0.3s ease;
+}
+
+[x-show="isSideMenuOpen"]:hover {
+  transform: translateX(-110px);
+}
