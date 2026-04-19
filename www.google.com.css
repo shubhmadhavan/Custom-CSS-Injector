@@ -1,4 +1,27 @@
+.notranslate  {display: none !important; }
+#search .notranslate  {display: block !important; }
+
 #logo, .k1zIA{display:none;}
 
 div[aria-label="Search inside image"] {opacity:0;}
 div[aria-label="Search inside image"]:hover {opacity:1;} 
+
+
+div[data-active="input-plate-active"] 
+{opacity: 0 !important;
+transition: opacity 0.3s ease-in;}
+
+
+div[data-active="input-plate-active"]:hover
+{opacity: 1 !important;
+}
+
+div[data-active="input-plate-active"]:focus-within
+ {
+  opacity: 1 !important;
+}
+
+div[data-active="input-plate-active"]:focus
+{opacity: 1 !important;
+}
+
