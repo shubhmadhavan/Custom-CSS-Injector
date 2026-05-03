@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Inject domain-specific custom CSS with menu options to modify or export styles
-// @author       You
+// @author       Shubh Madhavan
 // @match        *://*/*
 // @grant        GM_addStyle
 // @grant        GM_registerMenuCommand
@@ -27,16 +27,74 @@
     }
 
     injectCSS(customCSS);
+    // Edit CSS for current domain (restore this)
+GM_registerMenuCommand(`Edit Custom CSS for ${domain}`, function() {
+    showModalEditor();
+    // small delay then fallback to prompt if modal couldn't be created (same logic you used earlier)
+    setTimeout(() => {
+        const exists = document.querySelector('#custom-css-editor-modal');
+        const hasSize = exists && exists.offsetHeight > 0 && exists.offsetWidth > 0;
+        if (!exists || !hasSize) fallbackPromptEditor();
+    }, 500);
+});
+
 
     // Edit CSS for current domain
-    GM_registerMenuCommand(`Edit Custom CSS for ${domain}`, function() {
-        showModalEditor();
+    GM_registerMenuCommand(`Export Custom CSS for ${domain}`, function() {
+    const css = GM_getValue(storageKey, "");
+    if (!css || !css.trim()) {
+        alert(`No custom CSS saved for ${domain}.`);
+        return;
+    }
+
+    try {
+        const blob = new Blob([css], { type: 'text/css' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+
+        // sanitize domain for safe filename
+        const safeDomain = domain.replace(/[^a-z0-9\.\-_]/gi, '_');
+
+        // build date string yyyy-mm-dd
+        const d = new Date();
+        const yyyy = d.getFullYear();
+        const mm = String(d.getMonth() + 1).padStart(2, '0');
+        const dd = String(d.getDate()).padStart(2, '0');
+        const dateStr = `${yyyy}-${mm}-${dd}`;
+
+        a.download = `${safeDomain} (${dateStr}).css`;
+
+        document.body.appendChild(a);
+        a.click();
+
         setTimeout(() => {
-            const exists = document.querySelector('#custom-css-editor-modal');
-            const hasSize = exists && exists.offsetHeight > 0 && exists.offsetWidth > 0;
-            if (!exists || !hasSize) fallbackPromptEditor();
-        }, 500);
-    });
+            URL.revokeObjectURL(url);
+            if (a.parentNode) a.parentNode.removeChild(a);
+        }, 1000);
+    } catch (e) {
+        // Fallback: show in textarea if Blob download fails
+        const modal = document.createElement('textarea');
+        Object.assign(modal.style, {
+            position: 'fixed',
+            top: '10%',
+            left: '10%',
+            width: '80%',
+            height: '80%',
+            zIndex: 2147483647,
+            background: '#fff',
+            padding: '10px',
+            fontFamily: 'monospace',
+            fontSize: '14px',
+            border: '1px solid #ccc',
+            color: '#000'
+        });
+        modal.value = css;
+        document.body.appendChild(modal);
+        modal.select();
+        alert("Direct file download failed. The CSS is displayed in the textarea for manual copy.");
+    }
+});
 
     // Export all CSS
     GM_registerMenuCommand(`Export All Custom CSS`, async function() {
@@ -67,12 +125,61 @@
             padding: '10px',
             fontFamily: 'monospace',
             fontSize: '14px',
-            border: '1px solid #ccc'
+            border: '1px solid #ccc',
+            color: '#000'
         });
         modal.value = exportText || 'No custom CSS saved.';
         document.body.appendChild(modal);
         modal.select();
         alert("All custom CSS is displayed in the textarea. Copy it, then close.");
+    });
+
+    // Export CSS for current domain as a .css file
+    GM_registerMenuCommand(`Export Custom CSS for ${domain}`, function() {
+        const css = GM_getValue(storageKey, "");
+        if (!css || !css.trim()) {
+            alert(`No custom CSS saved for ${domain}.`);
+            return;
+        }
+
+        try {
+            const blob = new Blob([css], { type: 'text/css' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            // sanitize filename by replacing path-unsafe characters
+            const safeDomain = domain.replace(/[^a-z0-9\.\-_]/gi, '_');
+            a.download = `${safeDomain}.css`;
+            // Some pages block programmatic clicks unless element is in DOM
+            document.body.appendChild(a);
+            a.click();
+            // clean up
+            setTimeout(() => {
+                URL.revokeObjectURL(url);
+                if (a.parentNode) a.parentNode.removeChild(a);
+            }, 1000);
+        } catch (e) {
+            // Fallback: show in textarea if Blob download fails for some reason
+            const modal = document.createElement('textarea');
+            Object.assign(modal.style, {
+                position: 'fixed',
+                top: '10%',
+                left: '10%',
+                width: '80%',
+                height: '80%',
+                zIndex: 2147483647,
+                background: '#fff',
+                padding: '10px',
+                fontFamily: 'monospace',
+                fontSize: '14px',
+                border: '1px solid #ccc',
+            color: '#000'
+            });
+            modal.value = css;
+            document.body.appendChild(modal);
+            modal.select();
+            alert("Direct file download failed. The CSS is displayed in the textarea for manual copy.");
+        }
     });
 
     function showModalEditor() {
@@ -93,7 +200,8 @@
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            zIndex: 2147483647
+            zIndex: 2147483647,
+            color: '#000'
         });
 
         Object.assign(container.style, {
@@ -108,7 +216,8 @@
             alignItems: 'stretch',
             boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
             position: 'relative',
-            cursor: 'move'
+            cursor: 'move',
+            color: '#000'
         });
 
         Object.assign(textarea.style, {
@@ -117,7 +226,8 @@
             fontSize: '14px',
             fontFamily: 'monospace',
             resize: 'vertical',
-            marginBottom: '15px'
+            marginBottom: '15px',
+            color: '#000'
         });
         textarea.value = customCSS;
 
@@ -126,7 +236,8 @@
                 padding: '10px 15px',
                 fontSize: '14px',
                 marginRight: '10px',
-                cursor: 'pointer'
+                cursor: 'pointer',
+            color: '#000'
             });
         });
 
