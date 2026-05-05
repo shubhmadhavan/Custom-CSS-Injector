@@ -1,0 +1,14 @@
+.File .file-title {
+overflow: visible !important;}
+
+.content-inner .File, div.File.interactive {
+min-width: 500px !important;
+width: 520px !important;
+max-width: unset !important;}
+
+.VideoPlayer video {
+background-size: unset !important;}
+
+.VideoPlayer div {width: unset !important;}
+
+.VideoPlayer div.VideoPlayerControls {width: 100% !important;}
