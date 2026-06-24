@@ -1,0 +1,21 @@
+.detail-left {width: 100vw !important; max-width: 100vw !important;}
+
+.detail-right {width: 0vw !important; display:none;}
+
+
+.placeholder-fixed-el2 ~ *,
+.STERRA ~ * , .STERRA-S2 * , .STERRA-S2 ~ * {display: none !important;}
+
+div.video-player-wrapper, .live-page {z-index: 2147483647 !important;}
+
+.video-player-wrapper {height: 100vh !important; max-height: 100vh !important;}
+
+
+@media only screen and (max-width: 1228px) and (min-width: 899px) {
+
+.detail.detail-basketball .video-player-wrapper[data-v-131b9e4e], .detail.detail-football .video-player-wrapper[data-v-131b9e4e], .detail.detail-others .video-player-wrapper[data-v-131b9e4e] 
+
+{height: 100vh !important; min-height: 100vh !important; }
+
+}
+
