@@ -1,8 +1,5 @@
 # Custom CSS Injector
 
-## Preview
-<img src="https://github.com/user-attachments/assets/3cd32c1d-a899-4558-a345-1f6b32cf3d73" height="220">
-
 ## How to Use
 - Download a compatible userscript manager extension for your browser
 - Popular options are:
